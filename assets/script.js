@@ -66,27 +66,26 @@ question2.addEventListener("click", function(){
 //Here is the function for displaying the question
 function displayQuestion(questionObj) {
     var choicesContainer = document.querySelector('.choices-container');
-
+  
     choicesContainer.innerHTML = "";
-    var choices;
-    questionEl.textContent = questionObj.question; //Displays questions
-    
-
-    for (let i =0; i < questionObj.choices.length; i++) { //displays the choices and assigns them to buttons
-        choices = questionObj.choices[i];
-        var choiceBtn = document.createElement("button");
-        choiceBtn.textContent = choices;
-        choicesContainer.appendChild(choiceBtn);
-        choiceBtn.addEventListener("click", function(){ //this will compare the choices selected to the answers and will have a message pop up.
-            if (i === questionObj.answer) {
-                alert ("Correct!");
-            }
-            else {
-                alert ("Incorrect!");
-            }
-        });
-    } 
-}
+    questionEl.textContent = questionObj.question;
+  
+    for (let i = 0; i < questionObj.choices.length; i++) {
+      let choice = questionObj.choices[i];
+      let choiceBtn = document.createElement("button");
+      choiceBtn.textContent = choice;
+      choicesContainer.appendChild(choiceBtn);
+      choiceBtn.addEventListener("click", function() {
+        if (i === questionObj.answer) {
+          alert("Correct!");
+        } else {
+          alert("Incorrect!");
+        }
+        displayResults(choice); // Display the user's selected choice
+      });
+    }
+  }
+  
 
 //This should have displayed the answer
 function displayResults(answer) {
