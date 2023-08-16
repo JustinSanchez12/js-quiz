@@ -25,7 +25,12 @@ var question = [
         question: "What is the square root of 64",
         choices: ["8","12","5"],
         answer: 0
-    }
+    },
+    {
+        question: "Commonly used data types DO NOT include",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: 1
+    },
 ];
 
 choicesContainer.style.display = "none";
